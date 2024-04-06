@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Scholarship</title>
+    <title>SULANDSAH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/images/icon/Favicon.png">
     <!-- all css here -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
@@ -29,7 +30,10 @@
 label{
     font-weight: 500;
     color: black;
-    /* font-size: 15px; */
+    font-size: 13px !important;
+}
+input, select{
+    font-size: 14px !important;
 }
     </style>
 </head>
@@ -74,7 +78,7 @@ label{
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-sm-9">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
+                                <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" style="width: 80%;"></a>
                             </div>
                         </div>
                         <div class="col-xl-8 col-lg-7 d-none d-lg-block">
@@ -142,7 +146,7 @@ label{
                         <div class="slider-content">
                             <!-- <h3>admission ‘ 20</h3> -->
                             <h1><span class="primary-color" >Your bright future</span> is Our Mission</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore</p>
+                            <p>Dive into a world of opportunities and take the first step towards your dreams.</p>
                         </div>
                     </div>
                 </div>
@@ -154,8 +158,8 @@ label{
                     <div class="col-lg-7 col-md-9">
                         <div class="slider-content">
                             <!-- <h3>admission ‘ 20</h3> -->
-                            <h1><span class="primary-color" >Your bright future</span> is Our Mission</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore</p>
+                            <h1><span class="primary-color" >Every Student  </span> Matters and Thrives</h1>
+                            <p>Empowering Every Learner: Fostering Success and Well-Being</p>
                         </div>
                     </div>
                 </div>
@@ -167,8 +171,8 @@ label{
                     <div class="col-lg-7 col-md-9">
                         <div class="slider-content">
                             <!-- <h3>admission ‘ 20</h3> -->
-                            <h1><span class="primary-color" >Your bright future</span> is Our Mission</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore</p>
+                            <h1><span class="primary-color" >Empowering Every </span> Learner's Journey</h1>
+                            <p>Fueling Individual Growth: Nurturing Each Path to Success</p>
                         </div>
                     </div>
                 </div>
@@ -203,21 +207,21 @@ label{
                                     <div class="form-row">
                                       <div class="form-group col-md-6">
                                         <label for="inputEmail4">Your Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <small style="color: black;font-weight: 500;">Your Full Name (Firstname.... Middle names... Lastname)</small>
+                                        <input type="text" class="form-control taxReqInput2" data-name="fullname" id="fullname">
+                                        <small style="color: black;font-weight: 500;font-size: 13px;">Your Full Name (Firstname.... Middle names... Lastname)</small>
                                       </div>
                                     </div>
                                     <div class="">
                                         <label for="inputEmail4">Gender</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="male" checked>
                                         <label class="form-check-label" for="exampleRadios1">
                                           Male
                                         </label>
                                       </div>
                                       <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                        <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="female">
                                         <label class="form-check-label" for="exampleRadios2">
                                           Female
                                         </label>
@@ -225,70 +229,58 @@ label{
 
                                     <div class="form-group mt-4">
                                       <label for="inputAddress">Address</label>
-                                      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                      <input type="text" class="form-control taxReqInput2" id="address" data-name="address">
                                     </div>
                                     <div class="form-row">
                                       <div class="form-group col-md-6">
                                         <label for="inputCity">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
+                                        <input type="text" class="form-control taxReqInput2" id="city" data-name="city">
                                       </div>
                                       <div class="form-group col-md-6">
-                                        <label for="inputState">State</label>
-                                        <select id="inputState" class="form-control">
-                                            <option disabled selected>--Select State--</option>
-                                            <option value="Abia">Abia</option>
-                                            <option value="Adamawa">Adamawa</option>
-                                            <option value="Akwa Ibom" >Akwa Ibom</option>
-                                            <option value="Anambra">Anambra</option>
-                                            <option value="Bauchi">Bauchi</option>
-                                            <option value="Bayelsa">Bayelsa</option>
-                                            <option value="Benue">Benue</option>
-                                            <option value="Borno">Borno</option>
-                                            <option value="Cross River">Cross River</option>
-                                            <option value="Delta">Delta</option>
-                                            <option value="Ebonyi">Ebonyi</option>
-                                            <option value="Edo">Edo</option>
-                                            <option value="Ekiti">Ekiti</option>
-                                            <option value="Enugu">Enugu</option>
-                                            <option value="FCT">Federal Capital Territory</option>
-                                            <option value="Gombe">Gombe</option>
-                                            <option value="Imo">Imo</option>
-                                            <option value="Jigawa">Jigawa</option>
-                                            <option value="Kaduna">Kaduna</option>
-                                            <option value="Kano">Kano</option>
-                                            <option value="Katsina">Katsina</option>
-                                            <option value="Kebbi">Kebbi</option>
-                                            <option value="Kogi">Kogi</option>
-                                            <option value="Kwara">Kwara</option>
-                                            <option value="Lagos">Lagos</option>
-                                            <option value="Nasarawa">Nasarawa</option>
-                                            <option value="Niger">Niger</option>
-                                            <option value="Ogun">Ogun</option>
-                                            <option value="Ondo">Ondo</option>
-                                            <option value="Osun">Osun</option>
-                                            <option value="Oyo">Oyo</option>
-                                            <option value="Plateau">Plateau</option>
-                                            <option value="Rivers">Rivers</option>
-                                            <option value="Sokoto">Sokoto</option>
-                                            <option value="Taraba">Taraba</option>
-                                            <option value="Yobe">Yobe</option>
-                                            <option value="Zamfara">Zamfara</option>
+                                        <label for="inputStatelabel">State</label>
+                                        <select id="state" class="form-control taxReqInput2" data-name="state">
+                                          
                                         </select>
                                       </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                           <label for="inputEmail4">Email</label>
-                                          <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                          <input type="text" class="form-control taxReqInput2" id="email" data-name="email">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                          <label for="inputEmail4">Phone</label>
+                                          <input type="number" class="form-control taxReqInput2" id="phone" data-name="phone" >
                                         </div>
                                       </div>
                                       <div class="form-row">
                                         <div class="form-group col-md-6">
-                                          <label for="inputEmail4">Phone</label>
-                                          <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                            <label for="Birth">Birth Certificate</label>
+                                            <input type="file" id="birth" class="form-control upload" data-name="birth">
+                                          </div>
+                                        <div class="form-group col-md-6">
+                                          <label for="Origin">State of Origin</label>
+                                          <input type="file" id="origin" class="form-control  upload" data-name="origin">
                                         </div>
                                       </div>
-                                    <button type="submit" class="btn btn-primary btn-round mt-4">Submit</button>
+                                      <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="Last">Last Term Result</label>
+                                            <input type="file" id="result" class="form-control upload" data-name="result">
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                            <label for="Last">recent passport photograph</label>
+                                            <input type="file" id="passport" class="form-control upload" data-name="passport">
+                                          </div>
+                                      </div>
+                                      <div id="msg_box" class="mt-5"></div>
+                                      <div id="msg_box2"></div>
+                                      <div id="image-container">
+                                        <img id="loaded-image" src="./assets/images/Eclipse1x-1.0s-200px-200px1-ezgif.com-gif-maker.gif" alt="Loaded content" style="display: none;">
+                                        <div id="loader" style="display: none;">Loading...</div>
+                                      </div>
+                                      <button type="button" class="btn btn-primary btn-round mt-4"
+                                      onclick="postCMs('upload','msg_box3','msg_boxi')" id="publish">Submit</button>
                                   </form>
                             </div>
                         </div>
@@ -325,6 +317,8 @@ label{
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/scripts1.js"></script>
+    <script src="assets/node_modules/publitio_js_sdk/build/publitio-api.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

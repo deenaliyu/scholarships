@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------
-Theme Name: Edification
+Theme Name: SULANDSAH
 Author: Jsoft
 Version: 1.0
 Description: Responsive Education HTML5 Template
@@ -2493,4 +2493,14 @@ h4.comment-title {
 .checkbox-inline input[type="checkbox"] {
   margin-right: 8px;
   width: auto;
+}
+
+
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust based on your needs */
+  font-size: 20px;
+  color: #555;
 }

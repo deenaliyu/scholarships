@@ -38,3 +38,112 @@ let STATES = `
   <option value="Yobe">Yobe</option>
   <option value="Zamfara">Zamfara</option>
 `
+let stateSelect2 = document.querySelector("#state")
+stateSelect2.innerHTML = STATES
+
+function postCMs(theImagClass, boxi1, boxi2) {
+  // Feedback to the user that files are uploading
+  const imageContainer = document.getElementById('image-container');
+  const loader = document.getElementById('loader');
+  const loadedImage = document.getElementById('loaded-image');
+
+  let allInputs = document.querySelectorAll(".taxReqInput2");
+  let fileInputs = document.querySelectorAll("." + theImagClass + '[type="file"]');
+  let allRadioBoxs = document.querySelectorAll(".form-check-input");
+
+  // Assuming PublitioAPI is a properly configured API wrapper
+  const publitio = new PublitioAPI("cfnfP3krqA2XVRVSLoAy", "sxez75Lji3RATkr7GMT651babu1z4giw");
+
+  let obj = {
+    endpoint: "createCMS",
+    data: {},
+  };
+  
+  async function uploadFiles() {
+   
+    for (let fileInput of fileInputs) {
+      if (fileInput.files.length > 0) {
+        for (let file of fileInput.files) {
+          const reader = new FileReader();
+          console.log(file);
+          reader.readAsBinaryString(file);
+         
+          loader.style.display = 'block';
+          loadedImage.style.display = 'block';
+          try {
+            let data = await publitio.uploadFile(file, 'file', {
+              title: `${file.name} - ${fileInput.dataset.name}`,
+              public_id: `${file.name.replace(/\.[^/.]+$/, "")}` // Removing file extension for public_id
+            });
+
+            // console.log('File uploaded:', data.url_preview);
+            // Assuming `data.url_preview` contains the URL to the uploaded file
+            if (!obj.data[fileInput.dataset.name]) {
+              obj.data[fileInput.dataset.name] = [];
+            }
+            obj.data[fileInput.dataset.name] = data.url_preview
+            // console.log(obj.data)
+          } catch (error) {
+            console.log(error);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Error Uploading your files, try again!",
+            });
+            $("#" + boxi2).html(``);
+            return;
+          }
+        }
+      } else {
+        alert("Upload all required files");
+        $("#" + boxi1).html(``);
+        return; // Stop execution if no file is selected
+      }
+    }
+
+    // Handle other inputs
+    allInputs.forEach(allInput => {
+      obj.data[allInput.dataset.name] = allInput.value;
+    });
+
+    allRadioBoxs.forEach((allRadioBox) => {
+      if (allRadioBox.checked) {
+        obj.data[allRadioBox.name] = allRadioBox.value;
+      }
+    });
+
+    console.log(obj);
+    let StringedData = JSON.stringify(obj);
+    loader.style.display = 'none';
+    loadedImage.style.display = 'none';
+    $("#publish").addClass("hidden");
+    
+    /*
+    $.ajax({
+      type: "POST",
+      url: HOST,
+      dataType: "json",
+      data: StringedData,
+      success: function(data) {
+         loader.style.display = 'none';
+        loadedImage.style.display = 'block';
+        Swal.fire({
+  title: "Good job!",
+  text: ${data.message},
+});
+        $("#publish").addClass("hidden");
+        window.location.reload();
+        console.log(data);
+      },
+      error: function(request, error) {
+        console.log(error);
+        $("#" + boxi1).html(`<p class="text-danger text-center mt-4 text-lg">Something went wrong !</p>`);
+        $("#" + boxi2).html(``);
+      }
+    });
+    */
+  }
+
+  uploadFiles();
+}
+
