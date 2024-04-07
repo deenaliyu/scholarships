@@ -55,7 +55,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
   const publitio = new PublitioAPI("cfnfP3krqA2XVRVSLoAy", "sxez75Lji3RATkr7GMT651babu1z4giw");
 
   let obj = {
-    endpoint: "createPrimary",
+    endpoint: "createCollege",
     data: {},
   };
   
@@ -118,6 +118,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
     loadedImage.style.display = 'none';
     $("#publish").addClass("hidden");
     
+    
     $.ajax({
       type: "POST",
       url: HOST,
@@ -127,20 +128,18 @@ function postCMs(theImagClass, boxi1, boxi2) {
          loader.style.display = 'none';
         loadedImage.style.display = 'block';
         Swal.fire({
-  title: "Good job!",
-  text: data.message,
-});
+          title: "Good job!",
+         text: data.message,
+        })
         $("#publish").addClass("hidden");
         window.location.reload();
-        console.log(data);
+;
       },
       error: function(request, error) {
-        console.log(error);
-        $("#" + boxi1).html(`<p class="text-danger text-center mt-4 text-lg">Something went wrong !</p>`);
-        $("#" + boxi2).html(``);
+       
       }
     });
-  
+    
   }
 
   uploadFiles();

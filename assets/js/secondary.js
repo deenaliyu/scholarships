@@ -55,7 +55,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
   const publitio = new PublitioAPI("cfnfP3krqA2XVRVSLoAy", "sxez75Lji3RATkr7GMT651babu1z4giw");
 
   let obj = {
-    endpoint: "createPrimary",
+    endpoint: "createSecondary",
     data: {},
   };
   
@@ -118,6 +118,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
     loadedImage.style.display = 'none';
     $("#publish").addClass("hidden");
     
+
     $.ajax({
       type: "POST",
       url: HOST,
@@ -140,7 +141,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
         $("#" + boxi2).html(``);
       }
     });
-  
+    
   }
 
   uploadFiles();
