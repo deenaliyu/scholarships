@@ -1,3 +1,5 @@
+let HOST = "https://binarifylimited.com/ngo/php/index.php"
+
 let STATES = `
   <option disabled selected>--Select State--</option>
   <option value="Abia">Abia</option>
@@ -44,6 +46,7 @@ stateSelect2.innerHTML = STATES
 function postCMs(theImagClass, boxi1, boxi2) {
   // Feedback to the user that files are uploading
   const imageContainer = document.getElementById('image-container');
+  const publixh = document.getElementById('publish');
   const loader = document.getElementById('loader');
   const loadedImage = document.getElementById('loaded-image');
 
@@ -58,6 +61,8 @@ function postCMs(theImagClass, boxi1, boxi2) {
     endpoint: "createSecondary",
     data: {},
   };
+
+ 
   
   async function uploadFiles() {
    
@@ -70,6 +75,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
          
           loader.style.display = 'block';
           loadedImage.style.display = 'block';
+          publixh.style.display = 'none';
           try {
             let data = await publitio.uploadFile(file, 'file', {
               title: `${file.name} - ${fileInput.dataset.name}`,
@@ -116,7 +122,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
     let StringedData = JSON.stringify(obj);
     loader.style.display = 'none';
     loadedImage.style.display = 'none';
-    $("#publish").addClass("hidden");
+    publixh.style.display = 'none';
     
 
     $.ajax({
@@ -125,15 +131,13 @@ function postCMs(theImagClass, boxi1, boxi2) {
       dataType: "json",
       data: StringedData,
       success: function(data) {
-         loader.style.display = 'none';
-        loadedImage.style.display = 'block';
         Swal.fire({
   title: "Good job!",
   text: data.message,
 });
-        $("#publish").addClass("hidden");
-        window.location.reload();
-        console.log(data);
+setTimeout(() => {
+  window.location.reload()
+}, 1000);
       },
       error: function(request, error) {
         console.log(error);
@@ -144,6 +148,6 @@ function postCMs(theImagClass, boxi1, boxi2) {
     
   }
 
-  uploadFiles();
+  // uploadFiles();
 }
 

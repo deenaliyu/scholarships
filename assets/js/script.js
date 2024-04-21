@@ -1,3 +1,6 @@
+let HOST = "https://binarifylimited.com/ngo/php/index.php"
+
+
 let STATES = `
   <option disabled selected>--Select State--</option>
   <option value="Abia">Abia</option>
@@ -45,6 +48,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
   // Feedback to the user that files are uploading
   const imageContainer = document.getElementById('image-container');
   const loader = document.getElementById('loader');
+  const publixh = document.getElementById('publish');
   const loadedImage = document.getElementById('loaded-image');
 
   let allInputs = document.querySelectorAll(".taxReqInput2");
@@ -116,7 +120,7 @@ function postCMs(theImagClass, boxi1, boxi2) {
     let StringedData = JSON.stringify(obj);
     loader.style.display = 'none';
     loadedImage.style.display = 'none';
-    $("#publish").addClass("hidden");
+    publixh.style.display = 'none';
     
     
     $.ajax({
@@ -125,15 +129,14 @@ function postCMs(theImagClass, boxi1, boxi2) {
       dataType: "json",
       data: StringedData,
       success: function(data) {
-         loader.style.display = 'none';
-        loadedImage.style.display = 'block';
+      
         Swal.fire({
           title: "Good job!",
          text: data.message,
         })
-        $("#publish").addClass("hidden");
-        window.location.reload();
-;
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000);
       },
       error: function(request, error) {
        

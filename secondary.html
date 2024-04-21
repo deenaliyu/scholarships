@@ -289,11 +289,17 @@ input, select{
                                       <div id="msg_box" class="mt-5"></div>
                                       <div id="msg_box2"></div>
                                       <div id="image-container">
-                                        <img id="loaded-image" src="./assets/images/Eclipse1x-1.0s-200px-200px1-ezgif.com-gif-maker.gif" alt="Loaded content" style="display: none;">
-                                        <div id="loader" style="display: none;">Loading...</div>
+                                        <div class="">
+                                            <div class="" style="display: flex;justify-content: center;">
+                                            <img id="loaded-image" src="./assets/images/Eclipse1x-1.0s-200px-200px1-ezgif.com-gif-maker.gif" alt="Loaded content" style="display: none;">
+                                            </div>
+                                            <div id="loader" style="display:none; font-weight: bold;">Uploading Documents...</div>
+                                        </div>
                                       </div>
+                                      <div class="" style="display: flex; justify-content: center;">
                                       <button type="button" class="btn btn-primary btn-round mt-4"
                                       onclick="postCMs('upload','msg_box3','msg_boxi')" id="publish">Submit</button>
+                                    </div>
                                   </form>
                             </div>
                         </div>
