@@ -1,5 +1,6 @@
 let HOST = "https://binarifylimited.com/ngo/php/index.php"
 
+
 let STATES = `
   <option disabled selected>--Select State--</option>
   <option value="Abia">Abia</option>
@@ -46,8 +47,8 @@ stateSelect2.innerHTML = STATES
 function postCMs(theImagClass, boxi1, boxi2) {
   // Feedback to the user that files are uploading
   const imageContainer = document.getElementById('image-container');
-  const publixh = document.getElementById('publish');
   const loader = document.getElementById('loader');
+  const publixh = document.getElementById('publish');
   const loadedImage = document.getElementById('loaded-image');
 
   let allInputs = document.querySelectorAll(".taxReqInput2");
@@ -61,8 +62,6 @@ function postCMs(theImagClass, boxi1, boxi2) {
     endpoint: "createSecondary",
     data: {},
   };
-
- 
   
   async function uploadFiles() {
    
@@ -75,7 +74,6 @@ function postCMs(theImagClass, boxi1, boxi2) {
          
           loader.style.display = 'block';
           loadedImage.style.display = 'block';
-          publixh.style.display = 'none';
           try {
             let data = await publitio.uploadFile(file, 'file', {
               title: `${file.name} - ${fileInput.dataset.name}`,
@@ -124,30 +122,32 @@ function postCMs(theImagClass, boxi1, boxi2) {
     loadedImage.style.display = 'none';
     publixh.style.display = 'none';
     
-
+    
     $.ajax({
       type: "POST",
       url: HOST,
       dataType: "json",
       data: StringedData,
       success: function(data) {
+      
         Swal.fire({
-  title: "Good job!",
-  text: data.message,
-});
-setTimeout(() => {
-  window.location.reload()
-}, 1000);
+          title: "Good job!",
+         text: data.message,
+        })
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000);
       },
       error: function(request, error) {
-        console.log(error);
-        $("#" + boxi1).html(`<p class="text-danger text-center mt-4 text-lg">Something went wrong !</p>`);
-        $("#" + boxi2).html(``);
+       
       }
     });
     
   }
 
-  // uploadFiles();
+  uploadFiles();
 }
+
+
+
 
