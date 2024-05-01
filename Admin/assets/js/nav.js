@@ -64,7 +64,7 @@ $("#side").html(`
 <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
  
   <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-  <p >${datax.fullname}</p>
+  <p >Admin</p>
   <a href="" class="btn btn-outline-primary mx-3 mt-2 d-block" id="logout">Logout</a>
   </ul>
 </div>
