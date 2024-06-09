@@ -1,4 +1,4 @@
-let HOST = "https://binarifylimited.com/ngo/php/index.php"
+let HOST = "https://sulandsahfoundation.org/php/index.php"
 
 
 let STATES = `
